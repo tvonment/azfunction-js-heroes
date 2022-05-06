@@ -7,7 +7,16 @@
       "name": "req",
       "methods": [
         "get"
-      ]
+      ],
+      "route": "heroes"
+    },
+    {
+      "name": "heroesIn",
+      "type": "cosmosDB",
+      "connectionStringSetting": "HeroesCore_COSMOSDB",
+      "databaseName": "heroes-db",
+      "collectionName": "Heroes",
+      "direction": "in"
     },
     {
       "type": "http",

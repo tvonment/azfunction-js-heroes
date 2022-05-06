@@ -8,13 +8,33 @@
       "methods": [
         "get",
         "post"
-      ]
+      ],
+      "route": "hero/{id}"
+    },
+    {
+      "name": "heroIn",
+      "type": "cosmosDB",
+      "connectionStringSetting": "HeroesCore_COSMOSDB",
+      "databaseName": "heroes-db",
+      "collectionName": "Heroes",
+      "id": "{id}",
+      "partitionKey": "{id}",
+      "direction": "in"
     },
     {
       "type": "http",
       "direction": "out",
       "name": "res"
+    },
+    {
+      "name": "heroOut",
+      "type": "cosmosDB",
+      "databaseName": "heroes-db",
+      "collectionName": "Heroes",
+      "createIfNotExists": true,
+      "partitionKey": "{id}",
+      "connectionStringSetting": "HeroesCore_COSMOSDB",
+      "direction": "out"
     }
-  ],
-  "scriptFile": "../dist/GetHero/index.js"
+  ]
 }
