@@ -6,16 +6,18 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get"
+        "delete"
       ],
-      "route": "heroes"
+      "route": "hero/{id}"
     },
     {
-      "name": "heroesIn",
+      "name": "hero",
       "type": "cosmosDB",
       "connectionStringSetting": "HeroesCore_COSMOSDB",
       "databaseName": "heroes-db",
       "collectionName": "Heroes",
+      "id": "{id}",
+      "partitionKey": "{id}",
       "direction": "in"
     },
     {
@@ -24,5 +26,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/GetHeroes/index.js"
+  "scriptFile": "../dist/DelHero/index.js"
 }

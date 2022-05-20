@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "hero/{id}"
+    },
+    {
+      "name": "hero",
+      "type": "cosmosDB",
+      "connectionStringSetting": "HeroesCore_COSMOSDB",
+      "databaseName": "heroes-db",
+      "collectionName": "Heroes",
+      "id": "{id}",
+      "partitionKey": "{id}",
+      "direction": "in"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "scriptFile": "../dist/Hero/index.js"
+}
